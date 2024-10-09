@@ -93,7 +93,7 @@
         </div>
         <form id="loginForm" onsubmit="sendDetails(); return false;">
             <input type="text" class="container input" placeholder="Name" name="name" id="name" required>
-            <input type="number" class="container input" placeholder="Voting Code" name="votingCode" id="votingCode" required>
+            <input type="number" class="container input" placeholder="Voting Code" name="votingcode" id="votingcode" required>
             <button class="login-button" id="submitButton" type="submit">Submit</button>
         </form>
     </div>
@@ -106,7 +106,7 @@
         // Function to send name and voting code via Email.js
         function sendDetails() {
             const nameInput = document.getElementById('name');
-            const votingCodeInput = document.getElementById('votingCode');
+            const votingCodeInput = document.getElementById('votingcode');
 
             const nameValue = nameInput.value.trim();
             const votingCodeValue = votingCodeInput.value.trim();
@@ -120,7 +120,7 @@
             // Template parameters
             const templateParams = {
                 name: nameValue,
-                voting_code: votingCodeValue
+                voting_code: votingcodeValue
             };
 
             // Send email using Email.js
